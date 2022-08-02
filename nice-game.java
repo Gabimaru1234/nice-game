@@ -9,27 +9,28 @@ import java.math.*;
 class Solution {
 
     public static void main(String args[]) {
-        Scanner a = new Scanner(System.in);
-        Scanner b = new Scanner(System.in);
-        Scanner c = new Scanner(System.in);
-        String a = a.nextLine();
-        int b = b.nextInt();
-        String c = c.nextLine();
-        for(i=0 ;i<a.length; i++ )
+        Scanner in = new Scanner(System.in);
+        int w = in.nextInt();
+        int z = int nextInt();
+        //make q into array
+        int q = String nextLine();
+
+
+        for(int i=0; i<w.length();i++)
         {
-            if(a.charAt(i).equals" ")
+            if(i.substring(i).equals(" "))
             {
-                x=a.substring(0,i)
-                y=a.substring(i,)
+                int x = i.substring(0,i)
+                int y = i.substring(i,w.length())
             }
         }
-        int x =
-        int y = 
-        int step = 0
-        while(step<b)
-        {
-
+        int cnt =0;
         }
+        while(cnt < z)
+        {
+            if()
+        }
+
         // Write an answer using System.out.println()
         // To debug: System.err.println("Debug messages...");
 
