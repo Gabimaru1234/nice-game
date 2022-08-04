@@ -12,8 +12,16 @@ class Solution {
         Scanner in = new Scanner(System.in);
         int w = in.nextInt();
         int z = int nextInt();
-        //make q into array
-        int q = String nextLine();
+        String array[][] nice = new String[][];
+        String q = String nextLine();
+        for(int p= 0 ; p< q.length(); p++)
+        {
+            for(int g =0; g< g[p].length(); g++)
+            {
+                nice[p][g]= q;
+            }
+        }
+
 
 
         for(int i=0; i<w.length();i++)
@@ -26,9 +34,12 @@ class Solution {
         }
         int cnt =0;
         }
-        while(cnt < z)
+        for(int a = 0; a < z ; a++)
         {
-            if()
+            if(y-1.equals("#"))
+            {
+
+            }
         }
 
         // Write an answer using System.out.println()
