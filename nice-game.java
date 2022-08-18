@@ -8,6 +8,11 @@ import java.math.*;
  **/
 class Solution {
 
+    public Solution(...)
+    {
+        String [][] map = new String[w][h];
+    }
+
     public static void main(String args[]) {
         
         Scanner in = new Scanner(System.in);
@@ -18,6 +23,14 @@ class Solution {
         //make q into array
         
         int q = String nextLine();
+
+        for(int i=0; i< w ; i++)
+        {
+            for(int o=0; o < h ; o++)
+            {
+                map[i][o]=in;
+            }
+        }
 
 
         
@@ -37,19 +50,78 @@ class Solution {
         //1就是往右，
         //2上往下，
         //3是往左
+
+        // suppose "map"  is the map it is 2d array
         }
         while(cnt < z)
         {
-            if(y  -1)
+            if(nice == 0)
+            {
+                if(!map[x][y-1].equals("#")||(y-1)>=0)
+                {
+                    y-=1;
+                    cnt+=1;
+                }
+                if(map[x][y-1].equals("#"))
+                {
+                    
+                    nice=1;
+                    
+                }
+
+            }
+            if(nice == 1)
+            {
+                if(!map[x+1][y].equals("#")||(x+1)<=w)
+                {
+                    x+=1;
+                    cnt+=1;
+                }
+                if(map[x+1][y].equals("#"))
+                {
+                    
+                    nice=2;
+                    
+                }
+            }
+            if(nice == 2)
+            {
+                if(!map[x][y+1].equals("#")||(y+1)<=h)
+                {
+                    y+=1;
+                    cnt+=1;
+                }
+                if(map[x][y+1].equals("#"))
+                {
+                    
+                    nice=3;
+                    
+                }
+            }
+            if(nice == 3)
+            {
+                if(!map[x-1][y].equals("#")||(y-1)>=0)
+                {
+                    x-=1;
+                    cnt+=1;
+                }
+                if(map[x-1][y].equals("#"))
+                {
+                    
+                    nice=0;
+                    
+                }
+            }
+            
+
         }
-        // 這裡寫如果 上面有# 或是碰到邊界 
-        // 方向往右轉
-        //如果沒有 就cnt +1
+        // 這裡寫如果 上面有# 或是碰到邊界 v
+        // 方向往右轉 v
+        //如果沒有 就cnt +1 v 
         // 
 
-        // Write an answer using System.out.println()
-        // To debug: System.err.println("Debug messages...");
 
-        System.out.println("answer");
+
+        System.out.println("cnt");
     }
 }
