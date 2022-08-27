@@ -37,67 +37,125 @@ int main(){
        
 
     }
+    int nx = sx;
+    int ny = sy;
+    
     int cnt =0;
-    while(cnt < z)
+    int nice =0;
+    int q = 0;
+    // 算跑一圈 多少 
+    // q --> 找到 就+1 跳出來
+    // n % 找到的數字 --> 數字
+    // 跑 這個數字 步
+    // print 座標
+    while(q!=1)
+    {
+        if(nice==0)
         {
-            if(nice == 0)
+            if(nx==sx && ny==sy)
+            if((sy-1)>=0 && map[sy-1][sx]!='#')
             {
-                if(!map[x][y-1].equals("#")||(y-1)>=0)
-                {
-                    y-=1;
-                    cnt+=1;
-                }
-                if(map[x][y-1].equals("#"))
-                {
-                    
-                    nice=1;
-                    
-                }
-
+                cnt+=1;
+                sy-=1;
             }
-            if(nice == 1)
+            if((sy-1)<0||map[sy-1][sx]=='#')
             {
-                if(!map[x+1][y].equals("#")||(x+1)<=w)
-                {
-                    x+=1;
-                    cnt+=1;
-                }
-                if(map[x+1][y].equals("#"))
-                {
-                    
-                    nice=2;
-                    
-                }
-            }
-            if(nice == 2)
-            {
-                if(!map[x][y+1].equals("#")||(y+1)<=h)
-                {
-                    y+=1;
-                    cnt+=1;
-                }
-                if(map[x][y+1].equals("#"))
-                {
-                    
-                    nice=3;
-                    
-                }
-            }
-            if(nice == 3)
-            {
-                if(!map[x-1][y].equals("#")||(y-1)>=0)
-                {
-                    x-=1;
-                    cnt+=1;
-                }
-                if(map[x-1][y].equals("#"))
-                {
-                    
-                    nice=0;
-                    
-                }
+                nice=1;
             }
         }
+        if(nice==1)
+        {
+            if((sx+1)<=w && map[sy][sx+1]!='#')
+            {
+                cnt+=1;
+                sx+=1;
+            }
+            if((sx+1)>w||map[sy][sx+1]=='#')
+            {
+                nice=2;
+            }
+        }
+        if(nice==2)
+        {
+            if((sy+1)<=h && map[sy+1][sx]!='#')
+            {
+                cnt+=1;
+                sy+=1;
+            }
+            if((sy+1)>h||map[sy+1][sx]=='#')
+            {
+                nice=3;
+            }
+        }
+        if(nice==3)
+        {
+            if((sx-1)>=0 && map[sy][sx-1]!='#')
+            {
+                cnt+=1;
+                sx-=1;
+            }
+            if((sx-1)<0||map[sy][sx-1]=='#')
+            {
+                nice=0;
+            }
+        } 
+    }
+
+
+
+ 
+    while(cnt<n)
+    {
+        if(nice==0)
+        {
+            if((sy-1)>=0 && map[sy-1][sx]!='#')
+            {
+                cnt+=1;
+                sy-=1;
+            }
+            if((sy-1)<0||map[sy-1][sx]=='#')
+            {
+                nice=1;
+            }
+        }
+        if(nice==1)
+        {
+            if((sx+1)<=w && map[sy][sx+1]!='#')
+            {
+                cnt+=1;
+                sx+=1;
+            }
+            if((sx+1)>w||map[sy][sx+1]=='#')
+            {
+                nice=2;
+            }
+        }
+        if(nice==2)
+        {
+            if((sy+1)<=h && map[sy+1][sx]!='#')
+            {
+                cnt+=1;
+                sy+=1;
+            }
+            if((sy+1)>h||map[sy+1][sx]=='#')
+            {
+                nice=3;
+            }
+        }
+        if(nice==3)
+        {
+            if((sx-1)>=0 && map[sy][sx-1]!='#')
+            {
+                cnt+=1;
+                sx-=1;
+            }
+            if((sx-1)<0||map[sy][sx-1]=='#')
+            {
+                nice=0;
+            }
+        }
+
+    }
     printf("%d %d",sx,sy);
     return 0;
 }
