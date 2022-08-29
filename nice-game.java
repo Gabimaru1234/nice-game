@@ -48,14 +48,21 @@ int main(){
     // n % 找到的數字 --> 數字
     // 跑 這個數字 步
     // print 座標
+    int cnt1=0;
     while(q!=1)
     {
         if(nice==0)
-        {
-            if(nx==sx && ny==sy)
+        {   
+            if(cnt1!=0)
+            {
+                if(nx==sx && ny==sy)
+                {
+                    printf("%d", cnt1);
+                }
+            }
             if((sy-1)>=0 && map[sy-1][sx]!='#')
             {
-                cnt+=1;
+                cnt1+=1;
                 sy-=1;
             }
             if((sy-1)<0||map[sy-1][sx]=='#')
@@ -67,7 +74,7 @@ int main(){
         {
             if((sx+1)<=w && map[sy][sx+1]!='#')
             {
-                cnt+=1;
+                cnt1+=1;
                 sx+=1;
             }
             if((sx+1)>w||map[sy][sx+1]=='#')
@@ -79,7 +86,7 @@ int main(){
         {
             if((sy+1)<=h && map[sy+1][sx]!='#')
             {
-                cnt+=1;
+                cnt1+=1;
                 sy+=1;
             }
             if((sy+1)>h||map[sy+1][sx]=='#')
@@ -91,7 +98,7 @@ int main(){
         {
             if((sx-1)>=0 && map[sy][sx-1]!='#')
             {
-                cnt+=1;
+                cnt1+=1;
                 sx-=1;
             }
             if((sx-1)<0||map[sy][sx-1]=='#')
@@ -101,10 +108,11 @@ int main(){
         } 
     }
 
-
+    int niccce= 0;
+    niccce = r%cnt1;
 
  
-    while(cnt<n)
+    while(cnt<niccce)
     {
         if(nice==0)
         {
@@ -156,6 +164,8 @@ int main(){
         }
 
     }
+    fprintf(stderr, "%d %d %lld \n",w,h,n);
     printf("%d %d",sx,sy);
+    printf("%d", cnt);
     return 0;
 }
