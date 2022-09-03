@@ -57,7 +57,10 @@ int main(){
             {
                 if(nx==sx && ny==sy)
                 {
-                    printf("%d", cnt1);
+                    
+                    fprintf(stderr,"%d", cnt1);
+                    q+=1;
+                    break;
                 }
             }
             if((sy-1)>=0 && map[sy-1][sx]!='#')
@@ -109,7 +112,7 @@ int main(){
     }
 
     int niccce= 0;
-    niccce = r%cnt1;
+    niccce = cnt1;
 
  
     while(cnt<niccce)
@@ -165,7 +168,7 @@ int main(){
 
     }
     fprintf(stderr, "%d %d %lld \n",w,h,n);
-    printf("%d %d",sx,sy);
-    printf("%d", cnt);
-    return 0;
+    fprintf(stderr,"%d %d",sx,sy);
+    printf("%d %d", sy, sx-1);
+    
 }
