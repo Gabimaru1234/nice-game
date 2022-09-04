@@ -42,14 +42,13 @@ int main(){
     
     int cnt =0;
     int nice =0;
-    int q = 0;
     // 算跑一圈 多少 
     // q --> 找到 就+1 跳出來
     // n % 找到的數字 --> 數字
     // 跑 這個數字 步
     // print 座標
     int cnt1=0;
-    while(q!=1)
+    while(true)
     {
         if(nice==0)
         {   
@@ -58,8 +57,7 @@ int main(){
                 if(nx==sx && ny==sy)
                 {
                     
-                    fprintf(stderr,"%d", cnt1);
-                    q+=1;
+                    fprintf(stderr,"%d \n", cnt1);
                     break;
                 }
             }
@@ -114,8 +112,8 @@ int main(){
     int niccce= 0;
     niccce = cnt1;
 
- 
-    while(cnt<niccce)
+    fprintf(stderr,"sx=%d sy=%d",sx,sy);
+    while(cnt<(n-cnt1)%cnt1)
     {
         if(nice==0)
         {
@@ -124,7 +122,7 @@ int main(){
                 cnt+=1;
                 sy-=1;
             }
-            if((sy-1)<0||map[sy-1][sx]=='#')
+            else if((sy-1)<0||map[sy-1][sx]=='#')
             {
                 nice=1;
             }
@@ -136,7 +134,7 @@ int main(){
                 cnt+=1;
                 sx+=1;
             }
-            if((sx+1)>w||map[sy][sx+1]=='#')
+            else if((sx+1)>w||map[sy][sx+1]=='#')
             {
                 nice=2;
             }
@@ -148,7 +146,7 @@ int main(){
                 cnt+=1;
                 sy+=1;
             }
-            if((sy+1)>h||map[sy+1][sx]=='#')
+            else if((sy+1)>h||map[sy+1][sx]=='#')
             {
                 nice=3;
             }
@@ -160,7 +158,7 @@ int main(){
                 cnt+=1;
                 sx-=1;
             }
-            if((sx-1)<0||map[sy][sx-1]=='#')
+            else if((sx-1)<0||map[sy][sx-1]=='#')
             {
                 nice=0;
             }
@@ -169,6 +167,12 @@ int main(){
     }
     fprintf(stderr, "%d %d %lld \n",w,h,n);
     fprintf(stderr,"%d %d",sx,sy);
-    printf("%d %d", sy, sx-1);
+    printf("%d %d", sx, sy);
+    //printf("%d", sy ,sx);
+
+    //下一次：
+    // 7數字小先扣掉
+    // 
+    //
     
 }
