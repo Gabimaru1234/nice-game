@@ -169,10 +169,26 @@ int main(){
     fprintf(stderr,"%d %d",sx,sy);
     printf("%d %d", sx, sy);
     //printf("%d", sy ,sx);
-
-    //下一次：
-    // 7數字小先扣掉
-    // 
-    //
     
+    // 大圈 跟 小圈 
+    // 要想辦法找小圈的大小
+    //大圈上面找過
+    // . --------|
+    // ^         |
+    // |         |
+    // ----------|
+
+    like this-->
+    xy : starting pt
+    nx, ny : current
+    cnt : 1 small circle 
+    int i=0
+    if nx, ny = xy
+    int i=1
+    
+    --> when i =1
+    每棟一次 cnt++
+    最後回到原點 i=0
+    cnt --> 一圈
+        
 }
