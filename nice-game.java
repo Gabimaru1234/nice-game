@@ -48,25 +48,38 @@ int main(){
     // 跑 這個數字 步
     // print 座標
     int cnt1=0;
+    int originalpnt=0;
     while(true)
     {
+
+        
+            
+
+                if(nx==sx && ny==sy)
+                {   
+
+                    originalpnt+=1;
+
+                    
+                    if(originalpnt==3)
+                    //第二次碰到原點
+                    {
+                        
+                        fprintf(stderr,"%d \n", cnt1);
+                        break;
+                    }
+                    cnt1=0;
+                }
+            
         if(nice==0)
         {   
-            if(cnt1!=0)
-            {
-                if(nx==sx && ny==sy)
-                {
-                    
-                    fprintf(stderr,"%d \n", cnt1);
-                    break;
-                }
-            }
+            
             if((sy-1)>=0 && map[sy-1][sx]!='#')
             {
                 cnt1+=1;
                 sy-=1;
             }
-            if((sy-1)<0||map[sy-1][sx]=='#')
+            else if((sy-1)<0||map[sy-1][sx]=='#')
             {
                 nice=1;
             }
@@ -78,7 +91,7 @@ int main(){
                 cnt1+=1;
                 sx+=1;
             }
-            if((sx+1)>w||map[sy][sx+1]=='#')
+            else if((sx+1)>w||map[sy][sx+1]=='#')
             {
                 nice=2;
             }
@@ -90,7 +103,7 @@ int main(){
                 cnt1+=1;
                 sy+=1;
             }
-            if((sy+1)>h||map[sy+1][sx]=='#')
+            else if((sy+1)>h||map[sy+1][sx]=='#')
             {
                 nice=3;
             }
@@ -102,7 +115,7 @@ int main(){
                 cnt1+=1;
                 sx-=1;
             }
-            if((sx-1)<0||map[sy][sx-1]=='#')
+            else if((sx-1)<0||map[sy][sx-1]=='#')
             {
                 nice=0;
             }
@@ -112,8 +125,10 @@ int main(){
     int niccce= 0;
     niccce = cnt1;
 
-    fprintf(stderr,"sx=%d sy=%d",sx,sy);
+    fprintf(stderr,"sx=%d sy=%d\n",sx,sy);
     while(cnt<(n-cnt1)%cnt1)
+    //他走到原點的時候可以算碰到原點時間
+    //算比一圈小的(先把回原點步驟扣掉)
     {
         if(nice==0)
         {
@@ -165,8 +180,6 @@ int main(){
         }
 
     }
-    fprintf(stderr, "%d %d %lld \n",w,h,n);
-    fprintf(stderr,"%d %d",sx,sy);
     printf("%d %d", sx, sy);
     //printf("%d", sy ,sx);
     
@@ -178,7 +191,7 @@ int main(){
     // |         |
     // ----------|
 
-    like this-->
+    /*like this-->
     xy : starting pt
     nx, ny : current
     cnt : 1 small circle 
@@ -190,5 +203,5 @@ int main(){
     每棟一次 cnt++
     最後回到原點 i=0
     cnt --> 一圈
-        
+    */
 }
